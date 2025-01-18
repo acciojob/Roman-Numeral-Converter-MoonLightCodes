@@ -1,27 +1,30 @@
-document.getElementById('inp').addEventListener('input',convertToRoman(this.value))
+document.getElementById('inp').addEventListener('input', function() {
+  convertToRoman(this.value);
+});
+
 function convertToRoman(num) {
   const obj = {
-    0: ['M', 1000],
-    1: ['D', 500],
-    2: ['C', 100],
-    3: ['L', 50],
-    4: ['X', 10],
-    5: ['V', 5],
-    6: ['I', 1],
-    7: ['IV', 4],
-    8: ['IX', 9],
-    9: ['XL', 40],
-    10: ['XC', 90],
-    11: ['CD', 400],
-    12: ['CM', 900]
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
   };
 
   let roman = '';
-  for (let i = 0; i < Object.keys(obj).length; i++) {
-    while (num >= obj[i][1]) {
-      roman += obj[i][0];
-      num -= obj[i][1];
+  for (let key in obj) {
+    while (num >= obj[key]) {
+      roman += key;
+      num -= obj[key];
     }
   }
-  document.getElementById('ot').innerHTML = roman
+  document.getElementById('ot').innerHTML = roman;
 }
