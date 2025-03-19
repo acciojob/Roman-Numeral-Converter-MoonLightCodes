@@ -34,5 +34,5 @@ document.getElementById('convertButton').addEventListener('click', function() {
   }
 
   const romanNumeral = convertToRoman(Number(numberInput));
-  romanNumeralOutput.textContent = romanNumeral;
+  romanNumeralOutput.innerText = romanNumeral;
 });
